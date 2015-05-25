@@ -1,0 +1,693 @@
+<style>
+/*==============================
+=            COLORS            =
+==============================*/
+
+@prince-color DarkGreen {
+    alternate-color: cmyk(50%, 10%, 80%, 0%)
+}
+
+@prince-color Green {
+    alternate-color: cmyk(56%, 15%, 100%, 2%)
+}
+
+@prince-color DarkGray {
+    alternate-color: cmyk(81%, 77%, 69%, 48%)
+}
+
+@prince-color Gray {
+    alternate-color: cmyk(60%, 35%, 32%, 1%)
+}
+
+@prince-color White {
+    alternate-color: cmyk(0%, 0%, 0%, 0%)
+}
+
+@page {
+	marks: crop;
+	prince-trim: 12pt;
+}
+</style><style>
+/*=============================
+=            PAGES            =
+=============================*/
+
+body{
+	font-size: 10pt;
+	column-gap: 30px;
+	columns: 2;
+	column-fill: auto;
+	color: prince-color(DarkGray);
+	hyphens: none;
+	font-weight: lighter;
+}
+
+@page{
+	margin: 50px 65px 65px 65px;
+	@footnotes {
+		font-size: 8pt;
+		column-span: 2;
+    }
+    @bottom-right {
+        font-size: 8pt;
+		margin-bottom: 2em;
+        content: counter(page);
+    }
+}
+
+@page toc{
+	 @bottom {
+        content: "";
+        font-size: 8pt;
+    }
+
+	@bottom-right {
+        content: "";
+        font-size: 8pt;
+    }
+}
+
+@page:first { 
+    @top-right {
+		content: "An Example Document";
+		color: prince-color(Gray);
+		font-size: 10pt;
+        margin-top: 2em;
+	}
+
+	@bottom {
+        content: "";
+        font-size: 8pt;
+    }
+
+	@bottom-right {
+        content: "";
+        font-size: 8pt;
+    }
+
+	@bottom-left {
+		content: "";
+		background: url("img/logo.png") no-repeat;
+		background-size: 100%;
+		width: 80px;
+	}
+}
+
+/*=====================================
+=            LAYOUT STYLES            =
+=====================================*/
+
+.top{
+	float: column-top;
+	margin-top: 0 !important;
+	margin-bottom: 20px !important;
+}
+
+.bottom{
+	float: column-bottom;
+	margin-bottom: 0 !important;
+	margin-top: 20px !important;
+}
+
+.floatright{
+	float: right;
+	margin: 20px 0;
+	margin-left: 20px;
+}
+
+.floatleft{
+	float: left;
+	margin: 20px 0;
+	margin-left: 20px;
+}
+
+.full{
+    width: 100%;
+    column-span: 2;
+}
+
+.half{
+    width: 100%;
+    column-span: 1;
+}
+
+.descbottom{
+    float: column-bottom;
+    margin: 20px 0px 20px 0px !important;
+    width: 100% !important;
+    text-align: center;
+    font-size: 10pt;
+    line-height: 13pt;
+    color: prince-color(DarkGray);
+    font-weight: lighter !important;
+}
+
+.desctop{
+    float: column-top;
+    margin: 0px 0px 20px 0px !important;
+    width: 100% !important;
+    text-align: center;
+    font-size: 10pt;
+    line-height: 13pt;
+    color: prince-color(DarkGray);
+    font-weight: lighter !important;
+}
+
+.descinner{
+    float: left;
+    margin: 20px 0px 20px 0px !important;
+    width: 100% !important;
+    text-align: center;
+    font-size: 10pt;
+    line-height: 13pt;
+    color: prince-color(DarkGray);
+    font-weight: lighter !important;
+}
+
+.figure_name
+{
+	font-weight: bold !important;
+}
+
+.break{
+	page-break-after: always;
+}
+
+.columnbreak {
+	column-break-before: always;
+}
+
+.nobreak{
+	page-break-inside: avoid;
+}
+
+h1 {
+	color: prince-color(DarkGray);
+	font-size: 18pt;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-weight: lighter;
+}
+
+h2 {
+	color: prince-color(DarkGray);
+	font-size: 14pt;
+	margin-top: 30px;
+	margin-bottom: 12px;
+	font-weight: lighter;
+}
+
+h3 {
+	color: prince-color(DarkGray);
+	font-size: 12pt;
+	margin-top: 30px;
+	margin-bottom: 12px;
+	font-weight: lighter;
+}
+
+h4 {
+	color: prince-color(DarkGray);
+	font-size: 10pt;
+	margin-top: 30px;
+	margin-bottom: 12px;
+	font-weight: normal;
+}
+
+p {
+	padding: 0px;
+	font-size: 10pt;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	orphans: 2;
+	widows: 2;
+	line-height: 15pt;
+}
+
+p.italic{
+	font-style: oblique;
+}
+
+ul, ol{
+	margin: 0;
+	padding: 0 0 0 .3em;
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+ul li,
+ol li {
+	padding-left: 0em;
+	margin: .5em 0 .5em 1em;
+	color: prince-color(DarkGray);
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+ul li p,
+ol li p{
+	text-indent: 0 !important;
+	color: prince-color(DarkGray);
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+ul li p:last-child,
+ol li p:last-child,
+{
+	margin-bottom: 0;
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+a{
+	color: prince-color(Green);
+	text-decoration: none;
+}
+
+/*==============================
+=            IMAGES            =
+==============================*/
+
+img{
+    padding: 0;
+}
+
+/*=============================
+=            COVER            =
+=============================*/
+
+#cover { 
+	page-break-after: always;
+	float: column-top;
+	padding-top: 190px;
+	column-span: 2;
+	width: 100%;
+}
+
+#cover h1{
+	font-size: 36pt;
+	color: prince-color(DarkGray);
+	prince-bookmark-level: none;
+	font-weight: normal;
+	margin-left: 200px;
+	width: 500px;
+	line-height: 50px;
+	margin-bottom: 12px;
+	font-weight: lighter;
+}
+
+#cover h2,
+#cover h3{
+	font-size: 12pt;
+	margin: 0px 0px 0px 200px;
+	line-height: 14pt;
+	color: prince-color(Gray);
+	prince-bookmark-level: none;
+	font-weight: normal;
+}
+
+/*=============================
+=            PAGES            =
+=============================*/
+
+div#blank{
+	page-break-after: always;
+}
+
+div#toc{
+	page: toc;
+	page-break-after: always;
+}
+
+div#footer {
+	float: bottom;
+	column-span: 2;
+	width: 39pc;
+}
+
+div#footer img {
+	width: 80px;
+	left: 0px;
+}
+
+div#footer p {
+	font-size: 7pt;
+	line-height: 9pt;
+	left: 0px;
+}
+
+/*=============================
+=            INTRO            =
+=============================*/
+
+#content > h1:first-child{
+	float: column-top;
+	column-span: 2;
+	padding-top: 380px;
+	counter-reset: page 1; 
+}
+
+/*==============================
+=            TABLES            =
+==============================*/
+
+table {
+	font-size: 10pt;
+	page-break-inside: avoid;
+	border-collapse: collapse;
+}
+
+table tr th {
+	background-color: prince-color(DarkGreen);
+	color: prince-color(White);
+	page-break-after: avoid;
+	padding: .5em;
+}
+
+table tr td{
+	border-bottom: #aaaaaa dotted thin;
+	padding: .5em;
+	vertical-align: top;
+}
+
+table tr td p {
+	padding: 0;
+	margin: 0;
+}
+
+/*===========================
+=            CODE           =
+===========================*/
+
+code {
+	color: prince-color(DarkGray);
+	page-break-inside: avoid !important;
+	font-family: "Source Code Pro", "Courier New";
+	display: block;
+	font-size: 9pt;
+}
+
+p code, td code, li code {
+	display: inline !important;
+}
+
+/*==================================
+=            BLOCKQUOTE            =
+==================================*/
+
+blockquote{
+	padding: 1em 0em;
+	margin: 0px;
+	font-size: 17pt;
+	line-height: 19pt;
+	text-align: left;
+	position: relative;
+	color: prince-color(DarkGray);
+	font-weight: 200;
+}
+
+span.byline{
+	display: block;
+	font-size: 9pt;
+	line-height: 11pt;
+	margin-top: 1em;
+	font-weight: 200;
+}
+
+span.byline::before { 
+    content: "— ";
+}
+
+/*===============================
+=            FEATURE            =
+===============================*/
+
+.feature
+{
+	border-bottom: 1px solid prince-color(DarkGray);
+	padding: 1em 0em 0.5em 0em;
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+.feature h1
+{
+	border-bottom: 1px solid prince-color(DarkGray);
+	text-transform: uppercase;
+	font-size: 14pt;
+	line-height: 14pt;
+	margin: 0px;
+	padding: 0px 0px 2px 0px;
+	font-weight: 200;
+}
+
+.feature h2
+{
+	color: prince-color(DarkGreen);
+	font-weight: 100;
+	font-size: 14pt;
+	line-height: 22pt;
+	margin: 10px 0px 0px 0px;
+	padding: 0px;
+}
+
+.feature h3
+{
+	font-style: italic;
+	color: prince-color(DarkGreen);
+	font-weight: 300;
+	font-size: 10pt;
+	line-height: 18pt;
+	margin: 0px 0px 14px 0px;
+	padding: 0px;
+}
+
+.feature h1, .feature h2, .feature h3{
+	prince-bookmark-level: none;
+}
+
+/*=================================
+=            FOOTNOTES            =
+=================================*/
+
+.fn {
+  display: prince-footnote;
+  counter-increment: footnote;
+  footnote-style-position: inside;
+  font-size: 8pt;
+  line-height: 13pt;
+}
+
+.fn::footnote-call {
+  content: counter(footnote);
+  vertical-align: super;
+  font-size: 8pt;
+  line-height: 1.2em;
+}
+
+.fn::footnote-marker {
+  line-height: .5em;
+	padding:0;
+	padding-right: 6px;
+	margin: 0;
+}
+
+/*=========================================
+=            TABLE OF CONTENTS            =
+=========================================*/
+
+#toc ul,
+#toc h1,
+#toc h2,
+#toc h3
+{
+	margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: none;
+    font-size: 10pt !important;
+    color: prince-color(DarkGray);
+    line-height: 14pt;
+}
+
+#toc h1 span,
+#toc h2 span,
+#toc h3 span
+{
+	float: right;
+}
+
+#toc h1:first-child 
+{
+	font-weight: lighter;
+	font-size: 24pt !important;
+	color: prince-color(DarkGray);
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#toc h1
+{
+    margin-top: 0.8em;
+}
+
+#toc h2
+{
+	margin-left: 1em;
+}
+
+#toc h3
+{
+	margin-left: 2em;
+}
+
+#toc ul span + span {
+    float: right;
+    background: white;
+  }
+
+#toc ul li
+{
+	padding:0;
+	margin: 0 0 .55em 0;
+}
+
+#toc p{
+	font-size: 10pt;
+}
+</style>
+<div id="cover">
+<h1>Example Document</h1>
+<h2>Considerations and Best Practices</h2>
+<h3>May 2015</h3>
+<div id="frontlogo"></div>
+</div>
+<div id="toc">
+<h1>Table of Contents</h1>
+<h1 class="intro">Introduction<span></span></h1> 
+<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<span></span></h2> 
+<h2>Suspendisse semper eros.<span></span></h2> 
+<h1>Etiam eget nunc vitae turpis finibus<span></span></h1> 
+<h1>Fusce nec turpis lorem.<span></span></h1> 
+<h2>Pellentesque mauris justo.<span></span></h2> 
+<h3>Donec non felis elit.<span></span></h3> 
+<h2>Sed luctus suscipit ligula<span></span></h2> 
+<h1>Vestibulum egestas rhoncus porta.<span></span></h1> 
+<h1>Nec posuere eros<span></span></h1> 
+<h2>Nunc pretium, odio ac sodales sollicitudin.<span></span></h2> 
+<h2>Donec egestas, purus in posuere ornare.<span></span></h2> 
+</div>
+<div id="content">
+<h1 class="intro">Introduction</h1>
+
+<table class="full top">
+    <tr>
+        <th style="width: 25%;">Column 1</th>
+        <th style="width: 25%;">Column 2</th>
+        <th style="width: 50%;">Column 3</th>
+    </tr>
+    <tr>
+        <td>Item 1</td>
+        <td>Item 2</td>
+        <td>Item 3a</td>
+    </tr>
+
+    <tr>
+        <td colspan="3"><span class="figure_name">Figure 1:</span> Case Studies</td>
+    </tr>
+</table>
+
+<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+
+<p>Praesent iaculis erat id est facilisis, sed placerat diam porttitor. Curabitur tristique eleifend massa. Aenean semper a augue vel malesuada. Mauris sed aliquet justo. Donec dolor augue, rutrum ut pharetra vel, euismod vitae justo. Vivamus in est viverra nisl tristique dapibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam at sodales eros, vel blandit dolor. Suspendisse ut risus lorem. </p>
+
+<h2>Suspendisse semper eros.</h2>
+
+<p>Sed tincidunt volutpat eros, ut congue quam congue eu. </p>
+
+<ul>
+<li><p>Suspendisse convallis quam vitae diam lacinia viverra. </p></li>
+<li><p>Praesent luctus luctus mauris ut semper. </p></li>
+<li><p>Ut non lacus ligula. Praesent ut efficitur tellus. </p></li>
+<li><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p></li>
+<li><p>Integer id suscipit quam, vel vehicula nunc. </p></li>
+</ul>
+
+<h1>Etiam eget nunc vitae turpis finibus</h1>
+
+<p>Placerat vitae sed risus. Vestibulum feugiat mi odio, sed semper magna ultricies sit amet. Vestibulum ante tellus, dictum ac erat a, interdum convallis mauris. Nulla consectetur, ligula nec molestie iaculis, urna felis ultrices elit, id congue ipsum elit et tortor. <strong>Fusce maximus tristique turpis</strong>, at auctor lectus viverra vel. Vestibulum dapibus nunc quis nulla commodo, in pellentesque eros pharetra. Vestibulum placerat iaculis purus, a porta urna maximus id. Praesent eget risus dictum, ultrices dolor at, placerat lorem. Sed et metus non nibh fermentum finibus.</p>
+
+<h1>Fusce nec turpis lorem.</h1>
+
+<p>Duis vestibulum diam non semper pharetra. Fusce massa odio, rhoncus in velit et, tristique dignissim lectus. Aenean et justo eget libero elementum tristique eget in justo. Maecenas in eleifend neque, vitae maximus risus. Proin varius turpis ac ullamcorper placerat. Suspendisse a dignissim ex. Sed vulputate nisl id leo varius finibus. Nam a augue condimentum, imperdiet magna in, aliquam eros. Sed hendrerit nunc ut quam varius mattis. Donec eget bibendum ante. Nam gravida congue erat, vitae commodo lectus auctor sed.</p>
+
+<p>Nam eu nisi in sapien dictum consequat in sed metus. Proin viverra magna urna, ut suscipit elit pulvinar gravida. Sed varius, odio condimentum <strong>auctor lobortis</strong>, magna eros interdum metus, sit amet efficitur quam mauris eget tortor. In finibus gravida pretium. Donec blandit neque eu consectetur placerat. Morbi porttitor eros orci. Donec orci urna, tincidunt et congue a, lobortis vel elit. Mauris nisl odio, tristique sed blandit fermentum, maximus sed magna. Nullam eget tempor leo. Mauris imperdiet in lorem malesuada iaculis.</p>
+
+<p>Sed nec sagittis ligula. In quis ultrices libero. Ut in laoreet dolor. Mauris molestie augue vitae dapibus dignissim. Curabitur quis felis pretium, placerat sem non, condimentum odio. Donec sit amet lacus sed odio dignissim elementum. <strong>Aenean sodales neque eget leo congue, sit amet ultricies lorem fringilla.</strong> Maecenas luctus feugiat lectus, eget volutpat sapien interdum a.</p>
+
+<p>Donec venenatis blandit est, eu sagittis nibh semper non. </p>
+
+<h2>Pellentesque mauris justo.</h2>
+
+<p>Ornare nec arcu eget, luctus vestibulum massa. </p>
+
+<h3>Donec non felis elit.</h3>
+
+<p>Proin eu magna et lorem eleifend euismod. Donec hendrerit fringilla ante ac placerat. Suspendisse sit amet ullamcorper odio, non ultricies elit. <strong>Maecenas scelerisque purus sed risus suscipit efficitur. Fusce eu mattis metus. Suspendisse potenti.</strong> </p>
+
+<p>1) Nam in nulla non orci suscipit fringilla congue auctor nibh. </p>
+
+<p>2) Morbi sit amet posuere justo. </p>
+
+<p>3) Praesent vulputate imperdiet felis eget tempus. </p>
+
+<p>4) Pellentesque consequat mauris vitae suscipit eleifend. </p>
+
+<p>5) Suspendisse vel urna bibendum, volutpat arcu imperdiet, pellentesque nulla. </p>
+
+<p>Donec vehicula nisl non mauris eleifend condimentum sit amet ut diam.</p>
+
+<h2>Sed luctus suscipit ligula</h2>
+
+<p>Sit amet condimentum augue semper tincidunt. Ut velit neque, consequat in ligula vel, posuere iaculis felis. In nunc tellus, luctus id mauris sit amet, pulvinar mollis urna. Integer vel elementum ante. Fusce vel arcu iaculis, laoreet elit tempus, feugiat erat. In hac habitasse platea dictumst. Nam ipsum arcu, tempor consequat sapien elementum, accumsan hendrerit tortor. Quisque dapibus risus nec tristique rhoncus. Phasellus eros purus, cursus ut euismod hendrerit, dictum eu eros. Fusce lacinia nisl nec nulla convallis, sed finibus ex volutpat. Sed posuere purus id posuere sodales. Sed non congue orci, non placerat enim. Morbi rhoncus lorem in ligula facilisis consequat sit amet sed erat. Phasellus elit felis, vestibulum eget ex a, pharetra cursus nisl.</p>
+
+<p>Donec mollis elit eget ex tempus volutpat. </p>
+
+<h1>Vestibulum egestas rhoncus porta.</h1>
+
+<p>Sed pharetra sed dolor vitae faucibus. Fusce scelerisque, est in vestibulum dapibus, massa lectus euismod purus, eget ultricies augue arcu eget erat. Duis eros urna, commodo vel maximus quis, pretium non diam. Phasellus scelerisque hendrerit ex non maximus. Etiam blandit pharetra enim et condimentum. Vestibulum sem mauris, accumsan sed dolor quis, gravida viverra lacus. Maecenas scelerisque nibh eu maximus tincidunt. Donec hendrerit est eget lacus varius elementum. Mauris vel quam finibus, mollis tellus sed, dapibus magna. Nam odio metus, pretium et erat egestas, lobortis euismod sapien. Donec eget nisi faucibus, pulvinar neque ut, dapibus nisl. Fusce viverra odio at lacus suscipit suscipit.</p>
+
+<p>Nam cursus mi ligula, eget facilisis quam accumsan sit amet. Vestibulum aliquet odio massa, nec posuere ante aliquam vulputate. Cras elementum posuere arcu eleifend placerat. Quisque nulla erat, malesuada eget pulvinar sit amet, condimentum non mi. Sed venenatis lectus sit amet libero ultrices dapibus. Nunc congue lorem facilisis odio lacinia, et dignissim risus tincidunt. Duis a ullamcorper nisl. In porta tincidunt scelerisque. Donec ipsum nisi, efficitur ut felis tristique, finibus imperdiet elit. Aliquam vel dictum nunc, a gravida nunc. Nam eleifend arcu sit amet fermentum pulvinar. Maecenas id dolor diam. Cras ornare sagittis lacus non fringilla. Donec placerat dapibus augue. </p>
+
+<h1>Nec posuere eros</h1>
+
+<p>Fusce felis turpis, egestas sollicitudin nisl vel, rutrum placerat lectus. Sed ultricies urna a lorem faucibus ornare. Etiam ac facilisis dui. In ornare sapien hendrerit lacus aliquam blandit. </p>
+
+<h2>Nunc pretium, odio ac sodales sollicitudin.</h2>
+
+<p>Lectus lacus semper risus, nec suscipit urna nulla ac lectus. Aliquam lobortis elementum quam vitae consequat. Praesent eleifend posuere nunc id sodales.</p>
+
+<p>Pellentesque sed felis hendrerit, vehicula tortor tempor, efficitur risus. Nunc pretium tortor rutrum risus interdum, sit amet elementum arcu semper. Vivamus fermentum porttitor justo in dapibus. Integer consequat dui at mauris eleifend consequat. Praesent sed lobortis elit, sit amet vestibulum urna. Mauris eget turpis ultrices, vehicula risus at, aliquam sapien. Pellentesque luctus vel nunc quis mollis. Quisque ex tortor, dapibus a turpis et, porta ornare elit. In id tellus eu velit lobortis placerat.</p>
+
+<h2>Donec egestas, purus in posuere ornare.</h2>
+
+<p>Quam mauris semper lorem, in faucibus urna ante id turpis. Praesent porttitor, nisi ac pharetra fermentum, erat erat rhoncus quam, at consequat nisi risus sit amet tellus. Curabitur a gravida erat. Nullam porttitor mauris finibus nisi ornare mollis. Proin lacinia sapien tellus, ut lacinia ex dictum ut. Vivamus finibus leo eros, ac vestibulum odio laoreet at. Suspendisse nisl lacus, pretium vel sagittis ac, ultrices quis dolor. Curabitur vitae metus quis nunc malesuada suscipit ac vel mi. Integer vehicula dolor elit, ut lacinia ligula luctus sed. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+</div>
+<div class="nobreak">
+	<h1>Visit us</h1>
+	<p>Please visit <a href="http://www.example.com">example.com</a> or contact us at <a href="mailto:sales@example.com">sales@example.com</a>.</p>
+
+	<p class="nohyphen">
+	Case Studies (<a href="http://example.com/customers">example.com/case-studies</a>)<br>
+	Presentations (<a href="http://example.com/presentations">example.com/presentations</a>)<br>
+	</p>
+
+	<div style="clear:both;"></div>
+	<div id="footer">
+		<img src="img/logo.png">
+		<p>
+			New York &bull; Kalamazoo &bull; Vladivostok
+			&copy; 2015 Example, Inc.
+		</p>
+	</div>
+</div></body></html>

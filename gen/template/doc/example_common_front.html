@@ -1,0 +1,529 @@
+<style>
+/*=============================
+=            PAGES            =
+=============================*/
+
+body{
+	font-size: 10pt;
+	column-gap: 30px;
+	columns: 2;
+	column-fill: auto;
+	color: prince-color(DarkGray);
+	hyphens: none;
+	font-weight: lighter;
+}
+
+@page{
+	margin: 50px 65px 65px 65px;
+	@footnotes {
+		font-size: 8pt;
+		column-span: 2;
+    }
+    @bottom-right {
+        font-size: 8pt;
+		margin-bottom: 2em;
+        content: counter(page);
+    }
+}
+
+@page toc{
+	 @bottom {
+        content: "";
+        font-size: 8pt;
+    }
+
+	@bottom-right {
+        content: "";
+        font-size: 8pt;
+    }
+}
+
+@page:first { 
+    @top-right {
+		content: "An Example Document";
+		color: prince-color(Gray);
+		font-size: 10pt;
+        margin-top: 2em;
+	}
+
+	@bottom {
+        content: "";
+        font-size: 8pt;
+    }
+
+	@bottom-right {
+        content: "";
+        font-size: 8pt;
+    }
+
+	@bottom-left {
+		content: "";
+		background: url("img/logo.png") no-repeat;
+		background-size: 100%;
+		width: 80px;
+	}
+}
+
+/*=====================================
+=            LAYOUT STYLES            =
+=====================================*/
+
+.top{
+	float: column-top;
+	margin-top: 0 !important;
+	margin-bottom: 20px !important;
+}
+
+.bottom{
+	float: column-bottom;
+	margin-bottom: 0 !important;
+	margin-top: 20px !important;
+}
+
+.floatright{
+	float: right;
+	margin: 20px 0;
+	margin-left: 20px;
+}
+
+.floatleft{
+	float: left;
+	margin: 20px 0;
+	margin-left: 20px;
+}
+
+.full{
+    width: 100%;
+    column-span: 2;
+}
+
+.half{
+    width: 100%;
+    column-span: 1;
+}
+
+.descbottom{
+    float: column-bottom;
+    margin: 20px 0px 20px 0px !important;
+    width: 100% !important;
+    text-align: center;
+    font-size: 10pt;
+    line-height: 13pt;
+    color: prince-color(DarkGray);
+    font-weight: lighter !important;
+}
+
+.desctop{
+    float: column-top;
+    margin: 0px 0px 20px 0px !important;
+    width: 100% !important;
+    text-align: center;
+    font-size: 10pt;
+    line-height: 13pt;
+    color: prince-color(DarkGray);
+    font-weight: lighter !important;
+}
+
+.descinner{
+    float: left;
+    margin: 20px 0px 20px 0px !important;
+    width: 100% !important;
+    text-align: center;
+    font-size: 10pt;
+    line-height: 13pt;
+    color: prince-color(DarkGray);
+    font-weight: lighter !important;
+}
+
+.figure_name
+{
+	font-weight: bold !important;
+}
+
+.break{
+	page-break-after: always;
+}
+
+.columnbreak {
+	column-break-before: always;
+}
+
+.nobreak{
+	page-break-inside: avoid;
+}
+
+h1 {
+	color: prince-color(DarkGray);
+	font-size: 18pt;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-weight: lighter;
+}
+
+h2 {
+	color: prince-color(DarkGray);
+	font-size: 14pt;
+	margin-top: 30px;
+	margin-bottom: 12px;
+	font-weight: lighter;
+}
+
+h3 {
+	color: prince-color(DarkGray);
+	font-size: 12pt;
+	margin-top: 30px;
+	margin-bottom: 12px;
+	font-weight: lighter;
+}
+
+h4 {
+	color: prince-color(DarkGray);
+	font-size: 10pt;
+	margin-top: 30px;
+	margin-bottom: 12px;
+	font-weight: normal;
+}
+
+p {
+	padding: 0px;
+	font-size: 10pt;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	orphans: 2;
+	widows: 2;
+	line-height: 15pt;
+}
+
+p.italic{
+	font-style: oblique;
+}
+
+ul, ol{
+	margin: 0;
+	padding: 0 0 0 .3em;
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+ul li,
+ol li {
+	padding-left: 0em;
+	margin: .5em 0 .5em 1em;
+	color: prince-color(DarkGray);
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+ul li p,
+ol li p{
+	text-indent: 0 !important;
+	color: prince-color(DarkGray);
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+ul li p:last-child,
+ol li p:last-child,
+{
+	margin-bottom: 0;
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+a{
+	color: prince-color(Green);
+	text-decoration: none;
+}
+
+/*==============================
+=            IMAGES            =
+==============================*/
+
+img{
+    padding: 0;
+}
+
+/*=============================
+=            COVER            =
+=============================*/
+
+#cover { 
+	page-break-after: always;
+	float: column-top;
+	padding-top: 190px;
+	column-span: 2;
+	width: 100%;
+}
+
+#cover h1{
+	font-size: 36pt;
+	color: prince-color(DarkGray);
+	prince-bookmark-level: none;
+	font-weight: normal;
+	margin-left: 200px;
+	width: 500px;
+	line-height: 50px;
+	margin-bottom: 12px;
+	font-weight: lighter;
+}
+
+#cover h2,
+#cover h3{
+	font-size: 12pt;
+	margin: 0px 0px 0px 200px;
+	line-height: 14pt;
+	color: prince-color(Gray);
+	prince-bookmark-level: none;
+	font-weight: normal;
+}
+
+/*=============================
+=            PAGES            =
+=============================*/
+
+div#blank{
+	page-break-after: always;
+}
+
+div#toc{
+	page: toc;
+	page-break-after: always;
+}
+
+div#footer {
+	float: bottom;
+	column-span: 2;
+	width: 39pc;
+}
+
+div#footer img {
+	width: 80px;
+	left: 0px;
+}
+
+div#footer p {
+	font-size: 7pt;
+	line-height: 9pt;
+	left: 0px;
+}
+
+/*=============================
+=            INTRO            =
+=============================*/
+
+#content > h1:first-child{
+	float: column-top;
+	column-span: 2;
+	padding-top: 380px;
+	counter-reset: page 1; 
+}
+
+/*==============================
+=            TABLES            =
+==============================*/
+
+table {
+	font-size: 10pt;
+	page-break-inside: avoid;
+	border-collapse: collapse;
+}
+
+table tr th {
+	background-color: prince-color(DarkGreen);
+	color: prince-color(White);
+	page-break-after: avoid;
+	padding: .5em;
+}
+
+table tr td{
+	border-bottom: #aaaaaa dotted thin;
+	padding: .5em;
+	vertical-align: top;
+}
+
+table tr td p {
+	padding: 0;
+	margin: 0;
+}
+
+/*===========================
+=            CODE           =
+===========================*/
+
+code {
+	color: prince-color(DarkGray);
+	page-break-inside: avoid !important;
+	font-family: "Source Code Pro", "Courier New";
+	display: block;
+	font-size: 9pt;
+}
+
+p code, td code, li code {
+	display: inline !important;
+}
+
+/*==================================
+=            BLOCKQUOTE            =
+==================================*/
+
+blockquote{
+	padding: 1em 0em;
+	margin: 0px;
+	font-size: 17pt;
+	line-height: 19pt;
+	text-align: left;
+	position: relative;
+	color: prince-color(DarkGray);
+	font-weight: 200;
+}
+
+span.byline{
+	display: block;
+	font-size: 9pt;
+	line-height: 11pt;
+	margin-top: 1em;
+	font-weight: 200;
+}
+
+span.byline::before { 
+    content: "— ";
+}
+
+/*===============================
+=            FEATURE            =
+===============================*/
+
+.feature
+{
+	border-bottom: 1px solid prince-color(DarkGray);
+	padding: 1em 0em 0.5em 0em;
+	font-size: 10pt;
+	line-height: 15pt;
+}
+
+.feature h1
+{
+	border-bottom: 1px solid prince-color(DarkGray);
+	text-transform: uppercase;
+	font-size: 14pt;
+	line-height: 14pt;
+	margin: 0px;
+	padding: 0px 0px 2px 0px;
+	font-weight: 200;
+}
+
+.feature h2
+{
+	color: prince-color(DarkGreen);
+	font-weight: 100;
+	font-size: 14pt;
+	line-height: 22pt;
+	margin: 10px 0px 0px 0px;
+	padding: 0px;
+}
+
+.feature h3
+{
+	font-style: italic;
+	color: prince-color(DarkGreen);
+	font-weight: 300;
+	font-size: 10pt;
+	line-height: 18pt;
+	margin: 0px 0px 14px 0px;
+	padding: 0px;
+}
+
+.feature h1, .feature h2, .feature h3{
+	prince-bookmark-level: none;
+}
+
+/*=================================
+=            FOOTNOTES            =
+=================================*/
+
+.fn {
+  display: prince-footnote;
+  counter-increment: footnote;
+  footnote-style-position: inside;
+  font-size: 8pt;
+  line-height: 13pt;
+}
+
+.fn::footnote-call {
+  content: counter(footnote);
+  vertical-align: super;
+  font-size: 8pt;
+  line-height: 1.2em;
+}
+
+.fn::footnote-marker {
+  line-height: .5em;
+	padding:0;
+	padding-right: 6px;
+	margin: 0;
+}
+
+/*=========================================
+=            TABLE OF CONTENTS            =
+=========================================*/
+
+#toc ul,
+#toc h1,
+#toc h2,
+#toc h3
+{
+	margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: none;
+    font-size: 10pt !important;
+    color: prince-color(DarkGray);
+    line-height: 14pt;
+}
+
+#toc h1 span,
+#toc h2 span,
+#toc h3 span
+{
+	float: right;
+}
+
+#toc h1:first-child 
+{
+	font-weight: lighter;
+	font-size: 24pt !important;
+	color: prince-color(DarkGray);
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#toc h1
+{
+    margin-top: 0.8em;
+}
+
+#toc h2
+{
+	margin-left: 1em;
+}
+
+#toc h3
+{
+	margin-left: 2em;
+}
+
+#toc ul span + span {
+    float: right;
+    background: white;
+  }
+
+#toc ul li
+{
+	padding:0;
+	margin: 0 0 .55em 0;
+}
+
+#toc p{
+	font-size: 10pt;
+}
+</style>
